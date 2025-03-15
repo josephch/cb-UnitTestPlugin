@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="UnitTestPlugin" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="UnitTest" prefix_auto="1" extension_auto="1" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option host_application="codeblocks" />
+				<Option run_host_application_in_terminal="0" />
+				<Compiler>
+					<Add option="-ansi" />
+					<Add option="-g" />
+					<Add option="`pkg-config --cflags codeblocks`" />
+					<Add option="`wx-config --cflags`" />
+					<Add option="-fPIC" />
+				</Compiler>
+				<Linker>
+					<Add option="`pkg-config --libs codeblocks`" />
+					<Add option="`wx-config --libs`" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="mv libUnitTest.so UnitTest.so" />
+					<Add after="zip -j9 UnitTest.zip manifest.xml" />
+					<Add after="zip -j9 UnitTest.cbplugin UnitTest.so UnitTest.zip" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Unit filename="OutputReader.cpp" />
+		<Unit filename="OutputReader.h" />
+		<Unit filename="TestOutputLog.cpp" />
+		<Unit filename="TestOutputLog.h" />
+		<Unit filename="UnitTest.cpp" />
+		<Unit filename="UnitTest.h" />
+		<Unit filename="UnitTestProcess.cpp" />
+		<Unit filename="UnitTestProcess.h" />
+		<Unit filename="Utility.cpp" />
+		<Unit filename="Utility.h" />
+		<Unit filename="manifest.xml" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

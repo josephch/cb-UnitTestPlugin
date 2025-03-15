@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TestProject" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/TestProject" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="." />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/TestProject" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="main.cpp" />
+		<Unit filename="tests/TestFile1.cpp" />
+		<Unit filename="tests/TestFile2.cpp" />
+		<Unit filename="unittest++/AssertException.cpp" />
+		<Unit filename="unittest++/AssertException.h" />
+		<Unit filename="unittest++/CheckMacros.h" />
+		<Unit filename="unittest++/Checks.cpp" />
+		<Unit filename="unittest++/Checks.h" />
+		<Unit filename="unittest++/Config.h" />
+		<Unit filename="unittest++/CurrentTest.cpp" />
+		<Unit filename="unittest++/CurrentTest.h" />
+		<Unit filename="unittest++/DeferredTestReporter.cpp" />
+		<Unit filename="unittest++/DeferredTestReporter.h" />
+		<Unit filename="unittest++/DeferredTestResult.cpp" />
+		<Unit filename="unittest++/DeferredTestResult.h" />
+		<Unit filename="unittest++/ExecuteTest.h" />
+		<Unit filename="unittest++/MemoryOutStream.cpp" />
+		<Unit filename="unittest++/MemoryOutStream.h" />
+		<Unit filename="unittest++/Posix/SignalTranslator.cpp" />
+		<Unit filename="unittest++/Posix/SignalTranslator.h" />
+		<Unit filename="unittest++/Posix/TimeHelpers.cpp" />
+		<Unit filename="unittest++/Posix/TimeHelpers.h" />
+		<Unit filename="unittest++/ReportAssert.cpp" />
+		<Unit filename="unittest++/ReportAssert.h" />
+		<Unit filename="unittest++/Test.cpp" />
+		<Unit filename="unittest++/Test.h" />
+		<Unit filename="unittest++/TestDetails.cpp" />
+		<Unit filename="unittest++/TestDetails.h" />
+		<Unit filename="unittest++/TestList.cpp" />
+		<Unit filename="unittest++/TestList.h" />
+		<Unit filename="unittest++/TestMacros.h" />
+		<Unit filename="unittest++/TestReporter.cpp" />
+		<Unit filename="unittest++/TestReporter.h" />
+		<Unit filename="unittest++/TestReporterStdout.cpp" />
+		<Unit filename="unittest++/TestReporterStdout.h" />
+		<Unit filename="unittest++/TestResults.cpp" />
+		<Unit filename="unittest++/TestResults.h" />
+		<Unit filename="unittest++/TestRunner.cpp" />
+		<Unit filename="unittest++/TestRunner.h" />
+		<Unit filename="unittest++/TestSuite.h" />
+		<Unit filename="unittest++/ThrowingTestReporter.cpp" />
+		<Unit filename="unittest++/ThrowingTestReporter.h" />
+		<Unit filename="unittest++/TimeConstraint.cpp" />
+		<Unit filename="unittest++/TimeConstraint.h" />
+		<Unit filename="unittest++/TimeHelpers.h" />
+		<Unit filename="unittest++/UnitTest++.h" />
+		<Unit filename="unittest++/XmlTestReporter.cpp" />
+		<Unit filename="unittest++/XmlTestReporter.h" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

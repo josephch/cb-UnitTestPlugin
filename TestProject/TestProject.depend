@@ -1,0 +1,290 @@
+# depslib dependency file v1.0
+1392566650 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/main.cpp
+	"unittest++/UnitTest++.h"
+	<list>
+	<string>
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/UnitTest++.h
+	"Config.h"
+	"Test.h"
+	"TestList.h"
+	"TestSuite.h"
+	"TestResults.h"
+	"TestMacros.h"
+	"CheckMacros.h"
+	"TestRunner.h"
+	"TimeConstraint.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/Config.h
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/Test.h
+	"TestDetails.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestDetails.h
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestList.h
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestSuite.h
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestResults.h
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestMacros.h
+	"Config.h"
+	"ExecuteTest.h"
+	"AssertException.h"
+	"TestDetails.h"
+	"MemoryOutStream.h"
+	"Posix/SignalTranslator.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/ExecuteTest.h
+	"TestDetails.h"
+	"MemoryOutStream.h"
+	"AssertException.h"
+	"CurrentTest.h"
+	"Posix/SignalTranslator.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/MemoryOutStream.h
+	"Config.h"
+	<sstream>
+	<cstddef>
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/AssertException.h
+	<exception>
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/CurrentTest.h
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/Posix/SignalTranslator.h
+	<setjmp.h>
+	<signal.h>
+
+1392558309 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/CheckMacros.h
+	"Checks.h"
+	"AssertException.h"
+	"MemoryOutStream.h"
+	"TestDetails.h"
+	"CurrentTest.h"
+	<stdexcept>
+
+1392558285 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/Checks.h
+	<math.h>
+	<stdexcept>
+	"Config.h"
+	"TestResults.h"
+	"MemoryOutStream.h"
+
+1392496544 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestRunner.h
+	<string>
+	<list>
+	<string.h>
+	"Test.h"
+	"TestList.h"
+	"CurrentTest.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TimeConstraint.h
+	"TimeHelpers.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TimeHelpers.h
+	"Config.h"
+	"Posix/TimeHelpers.h"
+	"Win32/TimeHelpers.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/Posix/TimeHelpers.h
+	<sys/time.h>
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/Win32/TimeHelpers.h
+	"../Config.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/AssertException.cpp
+	"AssertException.h"
+	<cstring>
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/Checks.cpp
+	"Checks.h"
+	<cstring>
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/CurrentTest.cpp
+	"CurrentTest.h"
+	<cstddef>
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/DeferredTestReporter.cpp
+	"DeferredTestReporter.h"
+	"TestDetails.h"
+	"Config.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/DeferredTestReporter.h
+	"TestReporter.h"
+	"DeferredTestResult.h"
+	<vector>
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestReporter.h
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/DeferredTestResult.h
+	<string>
+	<vector>
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/DeferredTestResult.cpp
+	"DeferredTestResult.h"
+	"Config.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/MemoryOutStream.cpp
+	"MemoryOutStream.h"
+	<cstring>
+	<cstdio>
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/Posix/SignalTranslator.cpp
+	"SignalTranslator.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/Posix/TimeHelpers.cpp
+	"TimeHelpers.h"
+	<unistd.h>
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/ReportAssert.cpp
+	"AssertException.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/Test.cpp
+	"Config.h"
+	"Test.h"
+	"TestList.h"
+	"TestResults.h"
+	"AssertException.h"
+	"MemoryOutStream.h"
+	"ExecuteTest.h"
+	"Posix/SignalTranslator.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestDetails.cpp
+	"TestDetails.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestList.cpp
+	"TestList.h"
+	"Test.h"
+	<cassert>
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestReporter.cpp
+	"TestReporter.h"
+
+1392554624 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestReporterStdout.cpp
+	"TestReporterStdout.h"
+	<cstdio>
+	"TestDetails.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestReporterStdout.h
+	"TestReporter.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestResults.cpp
+	"TestResults.h"
+	"TestReporter.h"
+	"TestDetails.h"
+
+1392553602 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TestRunner.cpp
+	"TestRunner.h"
+	"TestResults.h"
+	"TestReporter.h"
+	"TestReporterStdout.h"
+	"ThrowingTestReporter.h"
+	"TimeHelpers.h"
+	"MemoryOutStream.h"
+	<string>
+	<cstring>
+	<iostream>
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/ThrowingTestReporter.h
+	"TestReporter.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/Main.cpp
+	"../UnitTest++.h"
+	"../TestReporterStdout.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/TestAssertHandler.cpp
+	"../UnitTest++.h"
+	"../AssertException.h"
+	"../ReportAssert.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/ReportAssert.h
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/TestCheckMacros.cpp
+	"../UnitTest++.h"
+	"../CurrentTest.h"
+	"RecordingReporter.h"
+	"ScopedCurrentTest.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/RecordingReporter.h
+	"../TestReporter.h"
+	<cstring>
+	"../TestDetails.h"
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/ScopedCurrentTest.h
+	"../CurrentTest.h"
+	<cstddef>
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/TestChecks.cpp
+	"../UnitTest++.h"
+	"RecordingReporter.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/TestCurrentTest.cpp
+	"../UnitTest++.h"
+	"../CurrentTest.h"
+	"ScopedCurrentTest.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/TestMemoryOutStream.cpp
+	"../UnitTest++.h"
+	"../MemoryOutStream.h"
+	<cstring>
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/TestTest.cpp
+	"../UnitTest++.h"
+	"../TestReporter.h"
+	"../TimeHelpers.h"
+	"ScopedCurrentTest.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/TestTestList.cpp
+	"../UnitTest++.h"
+	"../TestList.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/TestTestResults.cpp
+	"../UnitTest++.h"
+	"../TestResults.h"
+	"RecordingReporter.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/TestTestSuite.cpp
+	"../UnitTest++.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/tests/TestTimeConstraint.cpp
+	"../UnitTest++.h"
+	"../TestResults.h"
+	"../TimeHelpers.h"
+	"RecordingReporter.h"
+	"ScopedCurrentTest.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/ThrowingTestReporter.cpp
+	"ThrowingTestReporter.h"
+	"TestReporterStdout.h"
+	<cstdio>
+	<sstream>
+	<stdexcept>
+	"TestDetails.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/TimeConstraint.cpp
+	"TimeConstraint.h"
+	"TestResults.h"
+	"MemoryOutStream.h"
+	"CurrentTest.h"
+
+1387657522 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/XmlTestReporter.cpp
+	"XmlTestReporter.h"
+	"Config.h"
+	<iostream>
+	<sstream>
+	<string>
+
+1387657522 /home/koonschi/Documents/devel/UnitTestPlugin/TestProject/unittest++/XmlTestReporter.h
+	"DeferredTestReporter.h"
+	<iosfwd>
+
+1392568366 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/tests/TestFile1.cpp
+	"unittest++/UnitTest++.h"
+	<iostream>
+
+1392568354 source:/home/koonschi/Documents/devel/UnitTestPlugin/TestProject/tests/TestFile2.cpp
+	"unittest++/UnitTest++.h"
+	<iostream>
+
