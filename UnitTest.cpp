@@ -9,6 +9,7 @@
 #include <cbproject.h>
 #include <cbeditor.h>
 #include <sdk_events.h>
+#include <pluginmanager.h>
 
 #include <wx/process.h>
 
@@ -242,8 +243,8 @@ void UnitTest::EnsureBuildUpToDate()
 	m_WaitingCompilerToFinish = false;
 
 	// make sure the target is compiled
-	PluginsArray plugins = Manager::Get()->GetPluginManager()->GetCompilerOffers();
-	if (plugins.GetCount())
+	const PluginManager::CompilerPlugins& plugins = Manager::Get()->GetPluginManager()->GetCompilerPlugins();
+	if (plugins.size())
 	{
 		m_CompilerPlugin = (cbCompilerPlugin *)plugins[0];
 	}
