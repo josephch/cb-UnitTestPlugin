@@ -23,8 +23,6 @@ class OutputReader : public wxTimer
 		virtual void Notify() override;
 
 		void SendLine(const wxString &line);
-
 };
 
 #endif // __OUTPUTREADER_H__
-

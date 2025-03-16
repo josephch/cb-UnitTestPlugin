@@ -6,23 +6,20 @@
 
 using namespace std;
 
-OutputReader::OutputReader(UnitTest *parent) :
-	m_Parent(parent)
+OutputReader::OutputReader(UnitTest *parent) : m_Parent(parent)
 {
-
 }
 
 OutputReader::~OutputReader()
 {
-
 }
 
 void OutputReader::Start()
 {
-    outString = _("");
-    errString = _("");
+	outString = _("");
+	errString = _("");
 
-    wxTimer::Start(10, false);
+	wxTimer::Start(10, false);
 }
 
 void OutputReader::Notify()

@@ -14,23 +14,20 @@
 #include <wx/wxprec.h>
 
 #ifndef WX_PRECOMP
-#include <wx/wx.h>
-#include <wx/thread.h>
+	#include <wx/thread.h>
+	#include <wx/wx.h>
 #endif
 
 #include <cbplugin.h> // for "class cbPlugin"
 
-
-const long ID_MENU_RUNTEST 		= wxNewId();
-const long ID_MENU_RUNSUITE 	= wxNewId();
-const long ID_MENU_RUNALL 		= wxNewId();
-
+const long ID_MENU_RUNTEST = wxNewId();
+const long ID_MENU_RUNSUITE = wxNewId();
+const long ID_MENU_RUNALL = wxNewId();
 
 class TestOutputLog;
 class UnitTestProcess;
 class OutputReader;
 class TextCtrlLogger;
-
 
 class UnitTest : public cbPlugin
 {
@@ -45,8 +42,7 @@ class UnitTest : public cbPlugin
 		void OnRunAllTests(wxCommandEvent &WXUNUSED(event));
 
 		// getter
-		UnitTestProcess *GetProcess() {return m_Process;}
-
+		UnitTestProcess *GetProcess() { return m_Process; }
 
 	private:
 		DECLARE_EVENT_TABLE();
@@ -71,7 +67,7 @@ class UnitTest : public cbPlugin
 		bool m_WaitingCompilerToFinish;
 
 		void EnsureBuildUpToDate();
-		void OnCompilerFinished(cb_unused CodeBlocksEvent& event);
+		void OnCompilerFinished(cb_unused CodeBlocksEvent &event);
 
 		// process management
 		int LaunchTestProcess();
@@ -79,7 +75,6 @@ class UnitTest : public cbPlugin
 		void KillTestProcess();
 
 	public:
-
 		void OnTestRunFinished();
 
 		/** This method is called by Code::Blocks and is used by the plugin
@@ -117,6 +112,7 @@ class UnitTest : public cbPlugin
 		  * @return The plugin should return true if it needed the toolbar, false if not
 		  */
 		virtual bool BuildToolBar(wxToolBar *toolBar);
+
 	protected:
 		/** Any descendent plugin should override this virtual method and
 		  * perform any necessary initialization. This method is called by
@@ -140,7 +136,6 @@ class UnitTest : public cbPlugin
 		  *         behaviour is undefined...
 		  */
 		virtual void OnRelease(bool appShutDown);
-
 };
 
 #endif // UNITTEST_H_INCLUDED

@@ -1,8 +1,8 @@
 #ifndef __TESTOUTPUTLOG_H__
 #define __TESTOUTPUTLOG_H__
 
-#include <wx/event.h>
 #include "loggers.h"
+#include <wx/event.h>
 
 class wxArrayString;
 class wxArrayInt;

@@ -6,21 +6,21 @@
 #include <wx/wxprec.h>
 
 #ifndef WX_PRECOMP
-    #include <wx/wx.h>
+	#include <wx/wx.h>
 #endif
 
 struct TestSuite
 {
-    wxString name;
-    int startLine;
-    int endLine;
+		wxString name;
+		int startLine;
+		int endLine;
 };
 
 struct Test
 {
-    wxString name;
-    int startLine;
-    int endLine;
+		wxString name;
+		int startLine;
+		int endLine;
 };
 
 namespace ut
@@ -31,7 +31,6 @@ std::vector<wxString> split(wxString text, wxChar at);
 wxString getCurrentSuiteName();
 wxString getCurrentTestName();
 
-
-}
+} // namespace ut
 
 #endif // __UTILITY_H__

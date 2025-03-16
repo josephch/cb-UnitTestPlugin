@@ -17,6 +17,4 @@ class UnitTestProcess : public wxProcess
 		UnitTest *parent;
 };
 
-
 #endif // __UNITTESTPROCESS_H__
-

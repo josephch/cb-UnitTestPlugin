@@ -1,23 +1,23 @@
-#include <sdk.h> // Code::Blocks SDK
-#include <configurationpanel.h>
-#include <configmanager.h>
-#include <editormanager.h>
-#include <cbstyledtextctrl.h>
-#include <logmanager.h>
-#include <projectmanager.h>
-#include <macrosmanager.h>
-#include <cbproject.h>
 #include <cbeditor.h>
-#include <sdk_events.h>
+#include <cbproject.h>
+#include <cbstyledtextctrl.h>
+#include <configmanager.h>
+#include <configurationpanel.h>
+#include <editormanager.h>
+#include <logmanager.h>
+#include <macrosmanager.h>
 #include <pluginmanager.h>
+#include <projectmanager.h>
+#include <sdk.h> // Code::Blocks SDK
+#include <sdk_events.h>
 
 #include <wx/process.h>
 
-#include "Utility.h"
-#include "UnitTest.h"
-#include "TestOutputLog.h"
-#include "UnitTestProcess.h"
 #include "OutputReader.h"
+#include "TestOutputLog.h"
+#include "UnitTest.h"
+#include "UnitTestProcess.h"
+#include "Utility.h"
 
 using namespace std;
 
@@ -28,24 +28,22 @@ namespace
 PluginRegistrant<UnitTest> reg(_T("UnitTest"));
 }
 
-
 // events handling
 BEGIN_EVENT_TABLE(UnitTest, cbPlugin)
-	// add any events you want to handle here
+// add any events you want to handle here
 END_EVENT_TABLE()
 
 // constructor
-UnitTest::UnitTest() :
-	m_Process(nullptr),
-	m_OutputReader(nullptr),
-	m_OutputLog(nullptr),
-	m_OutputListLog(nullptr),
-	m_OutputLogPageIndex(0),
-	m_OutputListLogPageIndex(0),
-	m_SwitchedToOutput(false),
-	m_SwitchedToOutputList(false),
-	m_CompilerPlugin(nullptr),
-	m_WaitingCompilerToFinish(false)
+UnitTest::UnitTest() : m_Process(nullptr),
+					   m_OutputReader(nullptr),
+					   m_OutputLog(nullptr),
+					   m_OutputListLog(nullptr),
+					   m_OutputLogPageIndex(0),
+					   m_OutputListLogPageIndex(0),
+					   m_SwitchedToOutput(false),
+					   m_SwitchedToOutputList(false),
+					   m_CompilerPlugin(nullptr),
+					   m_WaitingCompilerToFinish(false)
 {
 	// Make sure our resources are available.
 	// In the generated boilerplate code we have no resources but when
@@ -85,7 +83,6 @@ void UnitTest::OnAttach()
 		CodeBlocksLogEvent evtAdd1(cbEVT_ADD_LOG_WINDOW, m_OutputLog, logManager->Slot(m_OutputLogPageIndex).title);
 		Manager::Get()->ProcessEvent(evtAdd1);
 
-
 		// error list log
 		wxArrayString Titles;
 		Titles.Add(_("File"));
@@ -108,7 +105,6 @@ void UnitTest::OnAttach()
 	}
 
 	m_OutputReader = new OutputReader(this);
-
 }
 
 void UnitTest::OnRelease(bool appShutDown)
@@ -143,12 +139,12 @@ void UnitTest::OnRelease(bool appShutDown)
 	m_OutputReader = nullptr;
 }
 
-
 // Callback/Event handlers
 void UnitTest::OnRunTest(wxCommandEvent &WXUNUSED(event))
 {
 	wxString testName = ut::getCurrentTestName();
-	if (testName == _T("")) return;
+	if (testName == _T(""))
+		return;
 
 	Manager::Get()->GetLogManager()->Log(testName);
 
@@ -159,7 +155,8 @@ void UnitTest::OnRunSuite(wxCommandEvent &WXUNUSED(event))
 {
 	wxString suiteName = ut::getCurrentSuiteName();
 
-	if (suiteName == _T("")) return;
+	if (suiteName == _T(""))
+		return;
 
 	Manager::Get()->GetLogManager()->Log(suiteName);
 
@@ -243,7 +240,7 @@ void UnitTest::EnsureBuildUpToDate()
 	m_WaitingCompilerToFinish = false;
 
 	// make sure the target is compiled
-	const PluginManager::CompilerPlugins& plugins = Manager::Get()->GetPluginManager()->GetCompilerPlugins();
+	const PluginManager::CompilerPlugins &plugins = Manager::Get()->GetPluginManager()->GetCompilerPlugins();
 	if (plugins.size())
 	{
 		m_CompilerPlugin = (cbCompilerPlugin *)plugins[0];
@@ -288,8 +285,8 @@ void UnitTest::OnCompilerFinished(cb_unused CodeBlocksEvent &event)
 			LaunchTestProcess();
 
 			ProjectManager *manager = Manager::Get()->GetProjectManager();
-            if (manager->GetIsRunning() && manager->GetIsRunning() == this)
-                manager->SetIsRunning(nullptr);
+			if (manager->GetIsRunning() && manager->GetIsRunning() == this)
+				manager->SetIsRunning(nullptr);
 		}
 		else
 		{
@@ -404,7 +401,6 @@ int UnitTest::LaunchTestProcess()
 	linkerPath = cbMergeLibPaths(OldLinkerPath, linkerPath);
 	wxSetEnv(CB_LIBRARY_ENVVAR, linkerPath);
 
-
 	// build command line
 	wxString commandLine;
 	commandLine << executablePath << _(" ") << m_CommandLineArguments;
@@ -461,7 +457,6 @@ bool UnitTest::IsTestProcessRunning() const
 	return (m_Process != nullptr);
 }
 
-
 void UnitTest::BuildMenu(wxMenuBar *menuBar)
 {
 	//The application is offering its menubar for your plugin,
@@ -477,7 +472,7 @@ void UnitTest::BuildModuleMenu(const ModuleType type, wxMenu *menu, const FileTr
 	//Check the parameter \"type\" and see which module it is
 	//and append any items you need in the menu...
 	//TIP: for consistency, add a separator as the first item...
-//    NotImplemented(_T("UnitTest::BuildModuleMenu()"));
+	//    NotImplemented(_T("UnitTest::BuildModuleMenu()"));
 
 	// Add the comment functions to the editor's context-sensitive menu.
 	if (type == mtEditorManager)

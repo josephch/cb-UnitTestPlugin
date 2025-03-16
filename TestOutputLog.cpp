@@ -2,12 +2,12 @@
 #include "sdk_precomp.h"
 
 #ifndef CB_PRECOMP
-    #include <wx/arrstr.h>
-    #include <wx/filename.h>
-    #include <wx/listctrl.h>
-    #include "manager.h"
-    #include "editormanager.h"
-    #include "cbeditor.h"
+	#include "cbeditor.h"
+	#include "editormanager.h"
+	#include "manager.h"
+	#include <wx/arrstr.h>
+	#include <wx/filename.h>
+	#include <wx/listctrl.h>
 #endif
 #include "cbstyledtextctrl.h"
 
@@ -15,15 +15,15 @@
 
 namespace
 {
-	const int ID_List = wxNewId();
+const int ID_List = wxNewId();
 };
 
 BEGIN_EVENT_TABLE(TestOutputLog, wxEvtHandler)
 //
 END_EVENT_TABLE()
 
-TestOutputLog::TestOutputLog(const wxArrayString& titles, wxArrayInt& widths)
-    : ListCtrlLogger(titles, widths)
+TestOutputLog::TestOutputLog(const wxArrayString &titles, wxArrayInt &widths)
+	: ListCtrlLogger(titles, widths)
 {
 	//ctor
 }
@@ -32,33 +32,30 @@ TestOutputLog::~TestOutputLog()
 {
 	//dtor
 	Disconnect(ID_List, -1, wxEVT_COMMAND_LIST_ITEM_ACTIVATED,
-               (wxObjectEventFunction) (wxEventFunction) (wxCommandEventFunction)
-               &TestOutputLog::OnDoubleClick);
+			   (wxObjectEventFunction)(wxEventFunction)(wxCommandEventFunction)&TestOutputLog::OnDoubleClick);
 }
-
 
 // TODO : use Getter instead of protected 'control'
 
 wxWindow *TestOutputLog::CreateControl(wxWindow *parent)
 {
 	ListCtrlLogger::CreateControl(parent);
-    control->SetId(ID_List);
-    Connect(ID_List, -1, wxEVT_COMMAND_LIST_ITEM_ACTIVATED,
-            (wxObjectEventFunction) (wxEventFunction) (wxCommandEventFunction)
-            &TestOutputLog::OnDoubleClick);
-    Manager::Get()->GetAppWindow()->PushEventHandler(this);
+	control->SetId(ID_List);
+	Connect(ID_List, -1, wxEVT_COMMAND_LIST_ITEM_ACTIVATED,
+			(wxObjectEventFunction)(wxEventFunction)(wxCommandEventFunction)&TestOutputLog::OnDoubleClick);
+	Manager::Get()->GetAppWindow()->PushEventHandler(this);
 	return control;
 }
 
 void TestOutputLog::DestroyControls()
 {
-    if (!Manager::Get()->IsAppShuttingDown())
-    {
-        Manager::Get()->GetAppWindow()->RemoveEventHandler(this);
-    }
+	if (!Manager::Get()->IsAppShuttingDown())
+	{
+		Manager::Get()->GetAppWindow()->RemoveEventHandler(this);
+	}
 }
 
-void TestOutputLog::OnDoubleClick(wxCommandEvent& /*event*/)
+void TestOutputLog::OnDoubleClick(wxCommandEvent & /*event*/)
 {
 	// go to the relevant file/line
 	if (control->GetSelectedItemCount() == 0)
@@ -83,7 +80,7 @@ void TestOutputLog::SyncEditor(int selected)
 
 	long line = 0;
 	li.m_text.ToLong(&line);
-	cbEditor* editor = Manager::Get()->GetEditorManager()->Open(filePath);
+	cbEditor *editor = Manager::Get()->GetEditorManager()->Open(filePath);
 	if (!line || !editor)
 	{
 		return;
@@ -93,7 +90,7 @@ void TestOutputLog::SyncEditor(int selected)
 	editor->Activate();
 	editor->GotoLine(line);
 
-	if (cbStyledTextCtrl* Control = editor->GetControl())
+	if (cbStyledTextCtrl *Control = editor->GetControl())
 	{
 		Control->EnsureVisible(line);
 	}
@@ -101,8 +98,7 @@ void TestOutputLog::SyncEditor(int selected)
 
 void TestOutputLog::Fit()
 {
-    int columns = control->GetColumnCount();
-    for (int ii = 0; ii < columns; ++ii)
-        control->SetColumnWidth(ii, wxLIST_AUTOSIZE);
+	int columns = control->GetColumnCount();
+	for (int ii = 0; ii < columns; ++ii)
+		control->SetColumnWidth(ii, wxLIST_AUTOSIZE);
 }
-

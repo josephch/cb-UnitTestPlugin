@@ -4,10 +4,8 @@
 
 #include <iostream>
 
-UnitTestProcess::UnitTestProcess(UnitTest *parent) :
-	parent(parent)
+UnitTestProcess::UnitTestProcess(UnitTest *parent) : parent(parent)
 {
-
 }
 
 void UnitTestProcess::OnTerminate(int pid, int status)
