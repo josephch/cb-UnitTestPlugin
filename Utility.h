@@ -28,9 +28,7 @@ namespace ut
 
 bool isWhiteSpace(wxChar c);
 std::vector<wxString> split(wxString text, wxChar at);
-wxString getCurrentSuiteName();
-wxString getCurrentTestName();
-
+std::optional<std::pair<wxString, wxString>> getCurrentSuiteAndTestName();
 } // namespace ut
 
 #endif // __UTILITY_H__

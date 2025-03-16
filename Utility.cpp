@@ -94,15 +94,15 @@ wxString getCurrentSuiteName()
 	return _T("");
 }
 
-wxString getCurrentTestName()
+std::optional<std::pair<wxString, wxString>> getCurrentSuiteAndTestName()
 {
 	cbEditor *editor = Manager::Get()->GetEditorManager()->GetBuiltinActiveEditor();
 	if (editor == nullptr)
-		return _T("");
+		return std::nullopt;
 
 	cbStyledTextCtrl *control = editor->GetControl();
 	if (control == nullptr)
-		return _T("");
+		return std::nullopt;
 
 	int currentLine = control->GetCurrentLine();
 
@@ -114,18 +114,18 @@ wxString getCurrentTestName()
 	// walk up checking for a pattern like
 	// TEST(TestName)
 	wxRegEx reSuite;
-	reSuite.Compile(_T("TEST[[:space:]]*\\((.+)\\)"));
+	reSuite.Compile(_T("TEST[[:space:]]*\\((.+,.+)\\)"));
 
 	while (currentLine >= 0 && currentLine < lines.size())
 	{
 		wxString &line = lines[currentLine];
 		if (reSuite.Matches(line))
 		{
-			wxString suiteName = reSuite.GetMatch(line, 1);
-
-			return suiteName;
+			wxString match = reSuite.GetMatch(line, 1);
+			wxArrayString arrayString = wxSplit(std::move(match), wxChar(','));
+			fprintf(stderr, "%s:%d suite %s test %s\n", __FUNCTION__, __LINE__, arrayString[0].ToUTF8().data(), arrayString[1].ToUTF8().data());
+			return make_pair(arrayString[0], arrayString[1].Trim(false));
 		}
-
 		currentLine--;
 	}
 
@@ -137,15 +137,14 @@ wxString getCurrentTestName()
 		wxString &line = lines[currentLine];
 		if (reSuite.Matches(line))
 		{
-			wxString suiteName = reSuite.GetMatch(line, 1);
-
-			return suiteName;
+			wxString match = reSuite.GetMatch(line, 1);
+			wxArrayString arrayString = wxSplit(std::move(match), wxChar(','));
+			return make_pair(arrayString[0], arrayString[1]);
 		}
 
 		currentLine++;
 	}
-
-	return _T("");
+	return std::nullopt;
 }
 
 } // namespace ut

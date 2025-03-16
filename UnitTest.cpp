@@ -142,25 +142,27 @@ void UnitTest::OnRelease(bool appShutDown)
 // Callback/Event handlers
 void UnitTest::OnRunTest(wxCommandEvent &WXUNUSED(event))
 {
-	wxString testName = ut::getCurrentTestName();
-	if (testName == _T(""))
+	auto suiteAndTest = ut::getCurrentSuiteAndTestName();
+	if (!suiteAndTest)
 		return;
 
+	wxString testName = suiteAndTest.value().first + "." + suiteAndTest.value().second;
 	Manager::Get()->GetLogManager()->Log(testName);
 
-	RunTests(_("-t ") + testName);
+	RunTests(_("--gtest_filter=") + testName);
 }
 
 void UnitTest::OnRunSuite(wxCommandEvent &WXUNUSED(event))
 {
-	wxString suiteName = ut::getCurrentSuiteName();
-
-	if (suiteName == _T(""))
+	auto suiteAndTest = ut::getCurrentSuiteAndTestName();
+	if (!suiteAndTest)
 		return;
+
+	wxString suiteName = suiteAndTest.value().first;
 
 	Manager::Get()->GetLogManager()->Log(suiteName);
 
-	RunTests(_("-s ") + suiteName);
+	RunTests(_("--gtest_filter=") + suiteName + _(".*"));
 }
 
 void UnitTest::OnRunAllTests(wxCommandEvent &WXUNUSED(event))
@@ -481,7 +483,11 @@ void UnitTest::BuildModuleMenu(const ModuleType type, wxMenu *menu, const FileTr
 
 		menu->AppendSeparator();
 
-		wxString currentTestName = ut::getCurrentTestName();
+		auto suiteAndTest = ut::getCurrentSuiteAndTestName();
+		if (!suiteAndTest)
+			return;
+
+		wxString currentTestName = suiteAndTest.value().first + "." + suiteAndTest.value().second;
 		if (currentTestName != _T(""))
 		{
 			wxString runTestCaption = _T("Run Test ") + currentTestName;
@@ -490,7 +496,7 @@ void UnitTest::BuildModuleMenu(const ModuleType type, wxMenu *menu, const FileTr
 			submenu->Append(runTestEntry);
 		}
 
-		wxString currentSuiteName = ut::getCurrentSuiteName();
+		wxString currentSuiteName = suiteAndTest.value().first;
 		if (currentSuiteName != _T(""))
 		{
 			wxString runSuiteCaption = _T("Run Suite ") + currentSuiteName;
