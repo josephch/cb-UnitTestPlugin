@@ -1,0 +1,9 @@
+.cache/
+.objs/
+UnitTest.cbplugin
+UnitTest.so
+UnitTest.zip
+UnitTestPlugin.depend
+UnitTestPlugin.layout
+compile_commands.json
+
