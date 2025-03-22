@@ -187,15 +187,23 @@ void UnitTest::OnOutput(const wxString &line)
 	}
 
 	wxRegEx errorExp;
-	errorExp.Compile(_T("([^:]*):([^:]*):([^:]*):[[:space:]]*Failure[[:space:]]*in[[:space:]]*([^:]*):([^:]*)"));
+	errorExp.Compile(_T("^(.*?):(\\d+):\\s*(.*)$"));
 
 	if (errorExp.Matches(line))
 	{
 		wxString file = errorExp.GetMatch(line, 1);
 		wxString lineNumber = errorExp.GetMatch(line, 2);
-		wxString character = errorExp.GetMatch(line, 3);
-		wxString test = errorExp.GetMatch(line, 4);
-		wxString message = errorExp.GetMatch(line, 5);
+		wxString test = wxEmptyString;
+		int lineNumberNumeric;
+		if (lineNumber.ToInt(&lineNumberNumeric))
+		{
+			auto suiteAndTest = ut::getSuiteAndTestName(lineNumberNumeric);
+			if (suiteAndTest)
+			{
+				test = suiteAndTest.value().first + "." + suiteAndTest.value().second;
+			}
+		}
+		wxString message = errorExp.GetMatch(line, 3);
 
 		// list log
 		wxArrayString str;

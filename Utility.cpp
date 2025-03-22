@@ -94,7 +94,14 @@ wxString getCurrentSuiteName()
 	return _T("");
 }
 
+static constexpr int CURRENT_LINE = INT_MIN;
+
 std::optional<std::pair<wxString, wxString>> getCurrentSuiteAndTestName()
+{
+	return getSuiteAndTestName(CURRENT_LINE);
+}
+
+std::optional<std::pair<wxString, wxString>> getSuiteAndTestName(int currentLine)
 {
 	cbEditor *editor = Manager::Get()->GetEditorManager()->GetBuiltinActiveEditor();
 	if (editor == nullptr)
@@ -104,7 +111,10 @@ std::optional<std::pair<wxString, wxString>> getCurrentSuiteAndTestName()
 	if (control == nullptr)
 		return std::nullopt;
 
-	int currentLine = control->GetCurrentLine();
+	if (currentLine == CURRENT_LINE)
+	{
+		currentLine = control->GetCurrentLine();
+	}
 
 	wxString editorText = control->GetText();
 
