@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <wx/wxprec.h>
+#include <optional>
 
 #ifndef WX_PRECOMP
 	#include <wx/wx.h>
